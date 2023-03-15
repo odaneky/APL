@@ -1,30 +1,24 @@
 %{
-#include <iostream>
+#include <stdio.h>
 #include "free.tab.h"
-using namespace std;
+int yylex(void);
+void yyerror(const char *msg) { fprintf(stderr, "Error: %s\n", msg); }
 %}
 
-%token NUMBER
+%token NUM
+%token VAR
 
 %%
-expression: NUMBER '+' NUMBER  { cout << $1 + $3 << endl; }
-          | NUMBER '-' NUMBER  { cout << $1 - $3 << endl; }
-          | NUMBER '*' NUMBER  { cout << $1 * $3 << endl; }
-          | NUMBER '/' NUMBER  { 
-                                  if($3 != 0)
-                                    cout << $1 / $3 << endl;
-                                  else
-                                    cerr << "Error: Division by zero" << endl;
-                                }
-          ;
-
+program : expr ';' { printf("%d\n", $1); }
+        ;
+expr    : NUM           { $$ = $1; }
+        | VAR           { $$ = $1; }
+        | expr '+' expr { $$ = $1 + $3; }
+        ;
 %%
 
-void yyerror(char *s) {
-    cerr << "Error: " << s << endl;
-}
-
-int main() {
+int main()
+{
     yyparse();
     return 0;
 }
