@@ -1,27 +1,30 @@
 %{
-#include <stdio.h>
-void yyerror(const char *);
+#include <iostream>
+#include "free.tab.h"
+using namespace std;
 %}
 
 %token NUMBER
 
 %%
-
-program:
-    statement    { printf("Result: %d\n", $1); }
-    ;
-
-statement:
-    expression  { $$ = $1; }
-    ;
-
-expression:
-    NUMBER '+' NUMBER  { $$ = $1 + $3; }
-    ;
+expression: NUMBER '+' NUMBER  { cout << $1 + $3 << endl; }
+          | NUMBER '-' NUMBER  { cout << $1 - $3 << endl; }
+          | NUMBER '*' NUMBER  { cout << $1 * $3 << endl; }
+          | NUMBER '/' NUMBER  { 
+                                  if($3 != 0)
+                                    cout << $1 / $3 << endl;
+                                  else
+                                    cerr << "Error: Division by zero" << endl;
+                                }
+          ;
 
 %%
 
-void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
+void yyerror(char *s) {
+    cerr << "Error: " << s << endl;
 }
 
+int main() {
+    yyparse();
+    return 0;
+}
