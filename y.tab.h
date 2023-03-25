@@ -39,69 +39,13 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     IF = 258,
-     ELSE = 259,
-     WHILE = 260,
-     INT = 261,
-     FLOAT = 262,
-     VOID = 263,
-     RETURN = 264,
-     PLUS = 265,
-     MINUS = 266,
-     TIMES = 267,
-     DIVIDE = 268,
-     EQUALS = 269,
-     EQUALITY = 270,
-     INEQUALITY = 271,
-     LESSTHAN = 272,
-     GREATERTHAN = 273,
-     LESSTHANEQUAL = 274,
-     GREATERTHANEQUAL = 275,
-     LPAREN = 276,
-     RPAREN = 277,
-     LBRACE = 278,
-     RBRACE = 279,
-     LBRACKET = 280,
-     RBRACKET = 281,
-     COMMA = 282,
-     SEMICOLON = 283,
-     IDENTIFIER = 284,
-     INTEGER = 285,
-     FLOATINGPOINT = 286,
-     UMINUS = 287
+     NUM = 258,
+     VAR = 259
    };
 #endif
 /* Tokens.  */
-#define IF 258
-#define ELSE 259
-#define WHILE 260
-#define INT 261
-#define FLOAT 262
-#define VOID 263
-#define RETURN 264
-#define PLUS 265
-#define MINUS 266
-#define TIMES 267
-#define DIVIDE 268
-#define EQUALS 269
-#define EQUALITY 270
-#define INEQUALITY 271
-#define LESSTHAN 272
-#define GREATERTHAN 273
-#define LESSTHANEQUAL 274
-#define GREATERTHANEQUAL 275
-#define LPAREN 276
-#define RPAREN 277
-#define LBRACE 278
-#define RBRACE 279
-#define LBRACKET 280
-#define RBRACKET 281
-#define COMMA 282
-#define SEMICOLON 283
-#define IDENTIFIER 284
-#define INTEGER 285
-#define FLOATINGPOINT 286
-#define UMINUS 287
+#define NUM 258
+#define VAR 259
 
 
 
