@@ -1,0 +1,6 @@
+ Verify if statements
+ensure code is runnable 
+create a formal grammar for our compiler
+comment and document code
+create functions
+verify for loops
